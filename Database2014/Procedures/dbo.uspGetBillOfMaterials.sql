@@ -1,5 +1,8 @@
-SET ANSI_NULLS ON
+﻿SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
+GO
+-- Create procedure [dbo].[uspGetBillOfMaterials]
+Print 'Create procedure [dbo].[uspGetBillOfMaterials]'
 GO
 -- Alter Procedure uspGetBillOfMaterials
 　
@@ -37,7 +40,13 @@ ORDER BY b.[BOMLevel], b.[ProductAssemblyID], b.[ComponentID]
 OPTION(MAXRECURSION 25);
 END;
 GO
+-- Create extended property MS_Description on [dbo].[uspGetBillOfMaterials]
+Print 'Create extended property MS_Description on [dbo].[uspGetBillOfMaterials]'
+GO
 EXEC sp_addextendedproperty N'MS_Description', N'Stored procedure using a recursive query to return a multi-level bill of material for the specified ProductID.', 'SCHEMA', N'dbo', 'PROCEDURE', N'uspGetBillOfMaterials', NULL, NULL
+GO
+-- Create extended property MS_Description on [dbo].[uspGetBillOfMaterials]
+Print 'Create extended property MS_Description on [dbo].[uspGetBillOfMaterials]'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Input parameter for the stored procedure uspGetBillOfMaterials used to eliminate components not used after that date. Enter a valid date.', 'SCHEMA', N'dbo', 'PROCEDURE', N'uspGetBillOfMaterials', 'PARAMETER', N'@CheckDate'
 GO
