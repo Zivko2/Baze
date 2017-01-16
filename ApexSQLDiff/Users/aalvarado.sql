@@ -1,4 +1,0 @@
-CREATE USER [aalvarado]
-	WITHOUT LOGIN
-	WITH DEFAULT_SCHEMA = [aalvarado]
-GO

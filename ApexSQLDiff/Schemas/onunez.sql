@@ -1,3 +1,0 @@
-CREATE SCHEMA [onunez]
-	AUTHORIZATION [onunez]
-GO

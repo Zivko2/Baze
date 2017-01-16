@@ -1,4 +1,0 @@
-CREATE USER [rgonzalez]
-	WITHOUT LOGIN
-	WITH DEFAULT_SCHEMA = [rgonzalez]
-GO

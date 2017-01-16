@@ -1,3 +1,0 @@
-CREATE SCHEMA [slira]
-	AUTHORIZATION [slira]
-GO

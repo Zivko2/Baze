@@ -1,3 +1,0 @@
-CREATE SCHEMA [Intrade]
-	AUTHORIZATION [Intrade]
-GO
