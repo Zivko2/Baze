@@ -1,0 +1,4 @@
+CREATE USER [kits_old]
+	WITHOUT LOGIN
+	WITH DEFAULT_SCHEMA = [kits]
+GO

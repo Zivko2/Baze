@@ -1,0 +1,3 @@
+CREATE SCHEMA [kits]
+	AUTHORIZATION [kits_old]
+GO

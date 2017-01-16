@@ -1,0 +1,3 @@
+CREATE SCHEMA [INSNT01\arodriguez]
+	AUTHORIZATION [INSNT01\arodriguez]
+GO

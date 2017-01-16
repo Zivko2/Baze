@@ -1,0 +1,51 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[SP_FACTEXP_BOMCICLO] (@fechaini varchar(11)='01/01/1990', @fechafin varchar(11)='01/01/9999')  as
+
+--SET NOCOUNT ON 
+declare @BST_PT int, @BST_ENTRAVIGOR datetime
+
+
+
+EXEC SP_DROPTABLE 'BOMCICLO'
+
+SELECT    0 AS BST_PT, '01/01/9999' AS ENTRAVIGOR
+INTO dbo.BOMCICLO
+
+
+
+		/* explosion de subensambles */
+		declare cur_factexpdet cursor for
+			SELECT     dbo.FACTEXPDET.MA_CODIGO, FED_FECHA_STRUCT
+			FROM         dbo.FACTEXPDET INNER JOIN dbo.FACTEXP ON dbo.FACTEXPDET.FE_CODIGO=dbo.FACTEXP.FE_CODIGO
+			WHERE  dbo.FACTEXPDET.FED_CANT >0 AND (dbo.FACTEXPDET.TI_CODIGO=14 OR dbo.FACTEXPDET.TI_CODIGO=16) AND
+				dbo.FACTEXPDET.FED_TIP_ENS<>'C' AND dbo.FACTEXPDET.FED_RETRABAJO='N' AND dbo.FACTEXP.FE_TIPO<>'T'
+				AND FACTEXP.FE_FECHA>=@fechaini AND FACTEXP.FE_FECHA<=@fechafin
+			GROUP BY dbo.FACTEXPDET.MA_CODIGO, FED_FECHA_STRUCT
+		
+		 OPEN cur_factexpdet
+		
+		
+			FETCH NEXT FROM cur_factexpdet INTO @BST_PT, @BST_ENTRAVIGOR
+			
+		
+		  WHILE (@@fetch_status = 0) 
+		  BEGIN  
+				
+
+				EXEC SP_BOMCICLO @BST_PT, @BST_ENTRAVIGOR
+	
+		
+			FETCH NEXT FROM cur_factexpdet INTO @BST_PT, @BST_ENTRAVIGOR
+		END
+		
+		CLOSE cur_factexpdet
+		DEALLOCATE cur_factexpdet
+
+
+
+	DELETE FROM  BOMCICLO WHERE BST_PT=0
+GO

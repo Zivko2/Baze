@@ -1,0 +1,23 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW dbo.VPD_TIPO
+with encryption as
+SELECT     CB_KEYFIELD, CB_LOOKUP
+FROM         dbo.COMBOBOXES
+WHERE     (CB_FIELD = 'PD_TIPO') AND (CB_TABLA = 270)
+
+
+
+
+GO

@@ -1,0 +1,67 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW dbo.VARANCEL
+with encryption as
+SELECT     dbo.ARANCEL.AR_CODIGO, dbo.ARANCEL.AR_OFICIAL, dbo.ARANCEL.AR_FRACCION, dbo.MEDIDA.ME_CORTO, dbo.ARANCEL.ME_CODIGO, 
+                   isnull(MEDIDA_1.ME_CORTO,'') AS ME_CORTO2
+FROM         dbo.ARANCEL LEFT OUTER JOIN
+                      dbo.MEDIDA MEDIDA_1 ON dbo.ARANCEL.ME_CODIGO2 = MEDIDA_1.ME_CODIGO LEFT OUTER JOIN
+                      dbo.MEDIDA ON dbo.ARANCEL.ME_CODIGO = dbo.MEDIDA.ME_CODIGO
+WHERE     (dbo.ARANCEL.AR_TIPOREG <> 'C')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO

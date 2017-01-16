@@ -1,0 +1,75 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW dbo.VIMPORTTABLES
+with encryption as
+SELECT     dbo.IMPORTTABLES.IMT_NUMFORMA, dbo.IMPORTTABLES.IMT_TEXTOFORMA
+FROM         dbo.IMPORTTABLES INNER JOIN
+                      dbo.IMPORTFIELDS ON dbo.IMPORTTABLES.IMT_CODIGO = dbo.IMPORTFIELDS.IMT_CODIGO
+WHERE     (dbo.IMPORTFIELDS.IMF_PARAIMPORT = 'S')
+GROUP BY dbo.IMPORTTABLES.IMT_NUMFORMA, dbo.IMPORTTABLES.IMT_TEXTOFORMA
+HAVING      (dbo.IMPORTTABLES.IMT_NUMFORMA > 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO

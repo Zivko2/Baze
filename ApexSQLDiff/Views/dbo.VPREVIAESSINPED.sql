@@ -1,0 +1,119 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW dbo.VPREVIAESSINPED
+with encryption as
+SELECT     TOP 100 PERCENT dbo.BOM_STRUCT.BSU_NOPARTE, dbo.BOM_STRUCT.BST_NOPARTE, dbo.BOM_STRUCT.ME_CODIGO, MEDIDA_1.ME_CORTO, 
+                      MEDIDA_1.ME_CORTO AS ME_GEN, dbo.BOM_STRUCT.FACTCONV, dbo.BOM_STRUCT.BST_PERINI, dbo.BOM_STRUCT.BST_PERFIN, 
+                      dbo.BOM_STRUCT.BSU_SUBENSAMBLE, dbo.BOM_STRUCT.BST_HIJO, dbo.BOM_STRUCT.BST_CODIGO
+FROM         dbo.BOM_STRUCT LEFT OUTER JOIN
+                      dbo.VPEDIMPDET ON dbo.BOM_STRUCT.BST_HIJO = dbo.VPEDIMPDET.MA_CODIGO LEFT OUTER JOIN
+		      dbo.MAESTRO ON dbo.BOM_STRUCT.BST_HIJO = dbo.MAESTRO.MA_CODIGO LEFT OUTER JOIN
+                      dbo.CONFIGURATIPO ON dbo.MAESTRO.TI_CODIGO = dbo.CONFIGURATIPO.TI_CODIGO LEFT OUTER JOIN
+                      dbo.MEDIDA MEDIDA_1 ON dbo.BOM_STRUCT.ME_GEN = MEDIDA_1.ME_CODIGO LEFT OUTER JOIN
+                      dbo.MEDIDA MEDIDA_2 ON dbo.BOM_STRUCT.ME_CODIGO = MEDIDA_2.ME_CODIGO
+WHERE     (dbo.CONFIGURATIPO.CFT_TIPO <> 'S') AND (dbo.VPEDIMPDET.MA_CODIGO IS NULL) and (dbo.BOM_STRUCT.BST_DISCH='S')
+ORDER BY dbo.BOM_STRUCT.BSU_SUBENSAMBLE, dbo.BOM_STRUCT.BST_HIJO, dbo.BOM_STRUCT.BST_PERINI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO

@@ -1,0 +1,13 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW dbo.VORDCOMPRANOIVA
+with encryption as
+SELECT     SUM(isnull(ORC_CONTRIBTOTUS,0)) AS ORC_CONTRIBTOTUS, OR_CODIGO
+FROM         dbo.ORDCOMPRACONTRIBUCION
+WHERE     (CON_CODIGO not in(select con_codigo from contribucion where con_clave='3'))
+GROUP BY OR_CODIGO
+
+
+GO
