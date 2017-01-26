@@ -1,0 +1,18 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[IMPEXCELBOM] (
+		[ORDEN]           [int] IDENTITY(1, 1) NOT NULL,
+		[NOPARTE]         [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[CANTIDAD]        [decimal](38, 6) NULL,
+		[DESPERDICIO]     [decimal](38, 6) NULL,
+		[MERMA]           [decimal](38, 6) NULL,
+		[NOPARTEAUX]      [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		CONSTRAINT [IX_IMPEXCELBOM]
+		UNIQUE
+		NONCLUSTERED
+		([ORDEN])
+		ON [PRIMARY]
+) ON [PRIMARY]
+GO

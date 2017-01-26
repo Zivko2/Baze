@@ -1,0 +1,31 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FACTEXPENT] (
+		[FEN_CODIGO]        [int] IDENTITY(1, 1) NOT NULL,
+		[FED_INDICED]       [int] NOT NULL,
+		[MA_HIJO]           [int] NOT NULL,
+		[FEN_FEC_ENT]       [datetime] NULL,
+		[PA_CODIGO]         [int] NULL,
+		[FEN_PAISLETRA]     [varchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[FEN_COS_UNI]       [decimal](38, 6) NULL,
+		[FEN_CANT]          [decimal](38, 6) NULL,
+		[ME_CODIGO]         [int] NULL,
+		[FEN_OBSERVA]       [varchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[FEN_TIPO]          [char](1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		CONSTRAINT [IX_FACTEXPENT]
+		UNIQUE
+		NONCLUSTERED
+		([FEN_CODIGO])
+		ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[FACTEXPENT]
+	ADD
+	CONSTRAINT [PK_FACTEXPENT]
+	PRIMARY KEY
+	NONCLUSTERED
+	([FED_INDICED], [MA_HIJO])
+	ON [PRIMARY]
+GO

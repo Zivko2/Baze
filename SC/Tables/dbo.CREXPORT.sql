@@ -1,0 +1,12 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[CREXPORT] (
+		[CAMCERT]      [varchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[DE_PEDMC]     [int] NULL,
+		[DE_ITNO]      [varchar](19) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[DE_SDESC]     [varchar](121) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[DE_EDESC]     [varchar](121) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+GO

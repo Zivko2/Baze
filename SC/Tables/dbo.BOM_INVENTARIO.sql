@@ -1,0 +1,12 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[BOM_INVENTARIO] (
+		[FE_CODIGO]       [int] NULL,
+		[FED_INDICED]     [int] NULL,
+		[BST_HIJO]        [int] NOT NULL,
+		[BST_NIVEL]       [varchar](5) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[FED_CANTFIN]     [decimal](38, 6) NULL
+) ON [PRIMARY]
+GO

@@ -1,0 +1,71 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE PROCEDURE dbo.SP_HABILITA_IMPORTACION (@IMP_NUMFORMA int)   as
+
+		UPDATE IMPORTACION SET IMP_ENUSO = 'N' 
+	WHERE IMP_TAG = 176 and IMP_NUMFORMA=@IMP_NUMFORMA
+	
+	
+	DELETE FROM IMPORTSPECDET
+	WHERE IMS_CODIGO = 0
+
+
+	DELETE FROM IMPORTSPEC
+	WHERE IMS_CODIGO = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
