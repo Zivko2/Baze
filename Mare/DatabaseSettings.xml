@@ -3,5 +3,5 @@
   <ServerVersion>None</ServerVersion>
   <ServerName>ZIVKO\SQLEXPRESS2016</ServerName>
   <DatabaseName>mare</DatabaseName>
-  <DatabaseInformation Version="2" />
+  <DatabaseInformation Version="3" />
 </DatabaseSettings>

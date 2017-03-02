@@ -9,6 +9,7 @@ CREATE TABLE [dbo].[Person] (
 		[isAlive]         [bit] NULL,
 		[age]             [int] NULL,
 		[dateOfBirth]     [binary](8) NULL,
-		[spouse]          [nvarchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+		[spouse]          [nvarchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[dhddh]           [int] NULL
 ) ON [PRIMARY]
 GO
