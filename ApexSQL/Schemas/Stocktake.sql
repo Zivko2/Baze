@@ -1,0 +1,3 @@
+CREATE SCHEMA [Stocktake]
+	AUTHORIZATION [dbo]
+GO
