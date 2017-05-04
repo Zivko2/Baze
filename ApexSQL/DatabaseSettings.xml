@@ -1,7 +1,7 @@
 <DatabaseSettings>
-  <Collation>Latin1_General_CI_AS</Collation>
+  <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
   <ServerVersion>Sql2014</ServerVersion>
   <ServerName>ZIVKO\SQLEXPRESS2016</ServerName>
   <DatabaseName>ApexTest</DatabaseName>
-  <DatabaseInformation Version="1" />
+  <DatabaseInformation Version="2" />
 </DatabaseSettings>
